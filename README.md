@@ -208,6 +208,7 @@ Update summary: `install_custom_nodes.bat` now force-adds the submodule (bypassi
 Update summary: Added a Lessons Learned entry to `AGENTS.md` documenting the `.gitignore` submodule issue and the fix.
 Update summary: Clarified in `AGENTS.md` that “commit the repo” means stage all files, commit, and push.
 Update summary: Added guidance in `AGENTS.md` for handling user-provided custom node Git URLs (add as submodule under `custom_nodes`, then install `requirements.txt` if present).
+Update summary: Updated `.gitignore` to ignore the models directory (`/models/`, Windows `.\\models`).
 
 Git clone this repo.
 

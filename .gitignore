@@ -3,6 +3,8 @@ __pycache__/
 /output/
 /input/
 !/input/example.png
+/models/
+# Windows path: .\\models
 /temp/
 /custom_nodes/
 !custom_nodes/example_node.py.example
