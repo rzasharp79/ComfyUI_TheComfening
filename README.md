@@ -209,6 +209,7 @@ Update summary: Added a Lessons Learned entry to `AGENTS.md` documenting the `.g
 Update summary: Clarified in `AGENTS.md` that “commit the repo” means stage all files, commit, and push.
 Update summary: Added guidance in `AGENTS.md` for handling user-provided custom node Git URLs (add as submodule under `custom_nodes`, then install `requirements.txt` if present).
 Update summary: Updated `.gitignore` to ignore the models directory (`/models/`, Windows `.\\models`).
+Update summary: `install.bat` and `run.bat` now ensure the `models` folder exists, creating it if missing.
 
 Git clone this repo.
 
