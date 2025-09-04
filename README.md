@@ -36,6 +36,11 @@
 
 ComfyUI lets you design and execute advanced stable diffusion pipelines using a graph/nodes/flowchart based interface. Available on Windows, Linux, and macOS.
 
+## Agent Workflow
+- This repository includes an agent/contributor guide in `AGENTS.md`.
+- After every change, `README.md` is updated to summarize what changed and why.
+- If a code change fails and must be redone, a brief “Lessons Learned” entry is appended to `AGENTS.md`.
+
 ## Get Started
 
 #### [Desktop Application](https://www.comfy.org/download)
