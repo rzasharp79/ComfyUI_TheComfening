@@ -25,3 +25,4 @@ openapi.yaml
 filtered-openapi.yaml
 uv.lock
 freeze_venv_requirements_to_txt_file.bat
+models

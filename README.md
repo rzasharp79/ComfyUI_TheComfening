@@ -207,6 +207,7 @@ Python 3.13 is very well supported. If you have trouble with some custom node de
 Update summary: `install_custom_nodes.bat` now force-adds the submodule (bypassing `.gitignore` rules for `custom_nodes/`), uses the `.git`-suffixed URL, and skips actions when `custom_nodes/ComfyUI-Manager` already exists.
 Update summary: Added a Lessons Learned entry to `AGENTS.md` documenting the `.gitignore` submodule issue and the fix.
 Update summary: Clarified in `AGENTS.md` that “commit the repo” means stage all files, commit, and push.
+Update summary: Added guidance in `AGENTS.md` for handling user-provided custom node Git URLs (add as submodule under `custom_nodes`, then install `requirements.txt` if present).
 
 Git clone this repo.
 

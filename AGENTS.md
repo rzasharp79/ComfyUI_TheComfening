@@ -51,6 +51,18 @@ Template:
 - Actions: Run `git add -A`, then `git commit -m "<message>"`, then `git push`.
 - Message: If no message is provided, ask for one or synthesize a concise summary per the Commit Messages guidelines.
 
+## Custom Node Submodule Requests
+- Trigger: When the user provides a Git repository URL for a custom node.
+- Steps:
+  - Change directory to `custom_nodes` (create it if missing).
+  - Add the repo as a submodule in this folder: `git submodule add --force <URL>`. Use the `.git` suffix if the URL doesn’t include it.
+  - Initialize/update the submodule: `git submodule update --init --recursive <path>`.
+  - Change directory into the newly created submodule folder.
+  - If `requirements.txt` exists, install with the active environment (prefer the repo `venv` if present): `python -m pip install -r requirements.txt`. If it does not exist, skip installation.
+- Guardrails:
+  - If the destination folder already exists, skip both submodule addition and requirement installation.
+  - If `custom_nodes/` is ignored by `.gitignore`, pass `--force` when adding the submodule (intentional override).
+
 ## Branching
 - Use feature branches: `feature/<short-name>`; fixes: `fix/<short-name>`; chores: `chore/<task>`.
 - Keep PRs under ~300 lines of reviewable diff when possible.
