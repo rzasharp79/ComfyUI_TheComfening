@@ -198,6 +198,16 @@ comfy install
 
 Python 3.13 is very well supported. If you have trouble with some custom node dependencies you can try 3.12
 
+### Custom Nodes Manager (Windows)
+- Purpose: Adds the ComfyUI-Manager as a git submodule under `custom_nodes` and installs its Python requirements.
+- Usage: From the repository root, run `install_custom_nodes.bat` (double‑click in Explorer or run from a terminal).
+- Behavior: If `custom_nodes/ComfyUI-Manager` already exists, the script skips both submodule addition and requirements installation. Otherwise, it initializes the submodule and installs dependencies using your local `venv` if present, or `py`/`python` on PATH.
+- Requirements: Git and Python available on your system; recommended to run inside this repo’s `venv`.
+
+Update summary: `install_custom_nodes.bat` now force-adds the submodule (bypassing `.gitignore` rules for `custom_nodes/`), uses the `.git`-suffixed URL, and skips actions when `custom_nodes/ComfyUI-Manager` already exists.
+Update summary: Added a Lessons Learned entry to `AGENTS.md` documenting the `.gitignore` submodule issue and the fix.
+Update summary: Clarified in `AGENTS.md` that “commit the repo” means stage all files, commit, and push.
+
 Git clone this repo.
 
 Put your SD checkpoints (the huge ckpt/safetensors files) in: models/checkpoints

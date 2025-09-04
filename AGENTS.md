@@ -46,6 +46,11 @@ Template:
   - Prefer describing features/fixes/docs over listing filenames unless filenames convey intent.
 - Offer an optional expanded body only if the user asks for more detail.
 
+## Commit Requests
+- Meaning: When the user says “commit the repo”, stage all changes, create a commit, and push to the current branch’s upstream.
+- Actions: Run `git add -A`, then `git commit -m "<message>"`, then `git push`.
+- Message: If no message is provided, ask for one or synthesize a concise summary per the Commit Messages guidelines.
+
 ## Branching
 - Use feature branches: `feature/<short-name>`; fixes: `fix/<short-name>`; chores: `chore/<task>`.
 - Keep PRs under ~300 lines of reviewable diff when possible.
@@ -66,6 +71,12 @@ Template:
 ## Lessons Learned Log
 
 Add new entries at the top.
+
+### Submodule blocked by .gitignore — 2025-09-04
+- Mistake: Attempted to add a submodule under ignored `custom_nodes/`; Git refused to add it.
+- Why it happened: Overlooked `.gitignore` rules that ignore `custom_nodes/` and assumed `git submodule add` would bypass ignore rules.
+- Fix applied: Used `git submodule add --force` with the `.git` URL in `install_custom_nodes.bat`; added early-exit logic when the folder already exists; documented behavior in README.
+- Prevention: Check `.gitignore` for target paths before adding submodules; add a pre-check in scripts to warn when a path is ignored and use `--force` only when intentional; prefer unignored paths or explicit unignore rules when feasible.
 
 <!-- Example entry (remove after first real entry)
 ### Misread return type in helper — 2025-09-04
