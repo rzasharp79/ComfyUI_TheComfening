@@ -38,6 +38,14 @@ Template:
 - Body: why the change was made and key decisions.
 - Footer: references (issues, PRs) if relevant.
 
+## Commit Message Requests
+- When the user asks for a commit message, generate a single-line summary of what has changed since the last commit.
+- Look back to the last time the user requested a commit message to maintain continuity and context; favor concise, user-facing impact over file lists.
+- Use the working tree to inform the summary:
+  - If there are staged changes, summarize staged changes; otherwise summarize all modified files since `HEAD`.
+  - Prefer describing features/fixes/docs over listing filenames unless filenames convey intent.
+- Offer an optional expanded body only if the user asks for more detail.
+
 ## Branching
 - Use feature branches: `feature/<short-name>`; fixes: `fix/<short-name>`; chores: `chore/<task>`.
 - Keep PRs under ~300 lines of reviewable diff when possible.
@@ -66,4 +74,3 @@ Add new entries at the top.
 - Fix applied: Converted to `Path.read_bytes()` before hashing.
 - Prevention: Skim tests first; assert types in new code paths.
 -->
-

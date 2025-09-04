@@ -39,7 +39,8 @@ ComfyUI lets you design and execute advanced stable diffusion pipelines using a 
 ## Agent Workflow
 - This repository includes an agent/contributor guide in `AGENTS.md`.
 - After every change, `README.md` is updated to summarize what changed and why.
-- If a code change fails and must be redone, a brief “Lessons Learned” entry is appended to `AGENTS.md`.
+- If a code change fails and must be redone, a brief "Lessons Learned" entry is appended to `AGENTS.md`.
+- When asked for a commit message, the agent provides a one-line summary of changes since the last commit, using the last commit-request context where relevant.
 
 ## Get Started
 
@@ -238,6 +239,16 @@ Nvidia users should install stable pytorch using this command:
 This is the command to install pytorch nightly instead which might have performance improvements.
 
 ```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu129```
+
+#### Windows helper (RTX 4090)
+
+If you’re on Windows with an RTX 4090 and want a one‑shot setup that ensures CUDA 12.9 PyTorch wheels are installed, you can run:
+
+```bat
+install_4090.bat
+```
+
+This script will create/activate a venv, upgrade pip, install `requirements.txt`, uninstall any existing `torch`/`torchvision`, install the CUDA 12.9 builds from `https://download.pytorch.org/whl/cu129`, and then launch `python main.py`.
 
 #### Troubleshooting
 
