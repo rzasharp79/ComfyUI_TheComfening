@@ -265,6 +265,14 @@ This script will create/activate a venv, upgrade pip, install `requirements.txt`
 
 #### Troubleshooting
 
+If you see an error like `OSError: [WinError 10048] only one usage of each socket address ...` or `error while attempting to bind on address ('127.0.0.1', 8188)`, it means the default port is already in use.
+
+- By default `run.bat` now auto-selects the first free port from `8188` to `8200`.
+- To force a specific port, set `COMFYUI_PORT` before running or pass `--port`:
+  - PowerShell: `$env:COMFYUI_PORT=8190; .\run.bat`
+  - CMD: `set COMFYUI_PORT=8190 && run.bat`
+  - Direct: `python main.py --port 8190`
+
 If you get the "Torch not compiled with CUDA enabled" error, uninstall torch with:
 
 ```pip uninstall torch```

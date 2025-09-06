@@ -1,0 +1,986 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+Loading personal and system profiles took 990ms.
+PS C:\Users\james> d:
+PS D:\> cd .\ComfyUI\
+PS D:\ComfyUI> ls
+
+
+    Directory: D:\ComfyUI
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/4/2025   7:24 AM                .ci
+d-----          9/4/2025   7:24 AM                .github
+d-----          9/4/2025   7:24 AM                alembic_db
+d-----          9/4/2025   7:57 AM                api_server
+d-----          9/4/2025   7:57 AM                app
+d-----          9/4/2025   7:57 AM                comfy
+d-----          9/4/2025   7:57 AM                comfy_api
+d-----          9/4/2025   7:57 AM                comfy_api_nodes
+d-----          9/4/2025   7:57 AM                comfy_config
+d-----          9/4/2025   7:57 AM                comfy_execution
+d-----          9/4/2025   7:57 AM                comfy_extras
+d-----          9/4/2025   7:57 AM                custom_nodes
+d-----          9/4/2025   7:24 AM                input
+d-----          9/4/2025   7:24 AM                models
+d-----          9/4/2025   7:24 AM                output
+d-----          9/4/2025   7:24 AM                script_examples
+d-----          9/4/2025   5:34 PM                temp
+d-----          9/4/2025   7:24 AM                tests
+d-----          9/4/2025   7:24 AM                tests-unit
+d-----          9/4/2025   7:57 AM                user
+d-----          9/4/2025   7:57 AM                utils
+d-----          9/4/2025   7:27 AM                venv
+d-----          9/4/2025   7:57 AM                __pycache__
+-a----          9/4/2025   7:24 AM            115 .gitattributes
+-a----          9/4/2025   8:32 AM            450 .gitignore
+-a----          9/4/2025   9:02 AM           3218 AGENTS.md
+-a----          9/4/2025   7:24 AM           3314 alembic.ini
+-a----          9/4/2025   7:24 AM           1744 CODEOWNERS
+-a----          9/4/2025   7:24 AM            131 comfyui_version.py
+-a----          9/4/2025   7:24 AM           1923 CONTRIBUTING.md
+-a----          9/4/2025   7:24 AM           3665 cuda_malloc.py
+-a----          9/4/2025   7:24 AM          52864 execution.py
+-a----          9/4/2025   7:24 AM           1527 extra_model_paths.yaml.example
+-a----          9/4/2025   7:24 AM          16566 folder_paths.py
+-a----          9/4/2025   8:30 AM           1606 freeze_venv_requirements_to_txt_file.bat
+-a----          9/4/2025   7:24 AM            383 hook_breaker_ac10a0.py
+-a----          9/4/2025   8:57 AM           1233 install_4090.bat
+-a----          9/4/2025   7:24 AM           4457 latent_preview.py
+-a----          9/4/2025   7:24 AM          35823 LICENSE
+-a----          9/4/2025   7:24 AM          14956 main.py
+-a----          9/4/2025   7:24 AM           1296 new_updater.py
+-a----          9/4/2025   7:24 AM         100939 nodes.py
+-a----          9/4/2025   7:24 AM           1744 node_helpers.py
+-a----          9/4/2025   7:24 AM            136 protocol.py
+-a----          9/4/2025   7:24 AM            702 pyproject.toml
+-a----          9/4/2025   7:24 AM            236 pytest.ini
+-a----          9/4/2025   9:02 AM          27206 README.md
+-a----          9/4/2025   7:24 AM            451 requirements.txt
+-a----          9/4/2025   7:57 AM             63 run.bat
+-a----          9/4/2025   7:24 AM          43912 server.py
+
+
+PS D:\ComfyUI> .\venv\Scripts\activate
+(venv) PS D:\ComfyUI> pip install torchaudio==2.8.0
+Requirement already satisfied: torchaudio==2.8.0 in d:\comfyui\venv\lib\site-packages (2.8.0)
+Collecting torch==2.8.0 (from torchaudio==2.8.0)
+  Using cached torch-2.8.0-cp312-cp312-win_amd64.whl.metadata (30 kB)
+Requirement already satisfied: filelock in d:\comfyui\venv\lib\site-packages (from torch==2.8.0->torchaudio==2.8.0) (3.19.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in d:\comfyui\venv\lib\site-packages (from torch==2.8.0->torchaudio==2.8.0) (4.15.0)
+Requirement already satisfied: sympy>=1.13.3 in d:\comfyui\venv\lib\site-packages (from torch==2.8.0->torchaudio==2.8.0) (1.14.0)
+Requirement already satisfied: networkx in d:\comfyui\venv\lib\site-packages (from torch==2.8.0->torchaudio==2.8.0) (3.5)
+Requirement already satisfied: jinja2 in d:\comfyui\venv\lib\site-packages (from torch==2.8.0->torchaudio==2.8.0) (3.1.6)
+Requirement already satisfied: fsspec in d:\comfyui\venv\lib\site-packages (from torch==2.8.0->torchaudio==2.8.0) (2025.9.0)
+Requirement already satisfied: setuptools in d:\comfyui\venv\lib\site-packages (from torch==2.8.0->torchaudio==2.8.0) (80.9.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in d:\comfyui\venv\lib\site-packages (from sympy>=1.13.3->torch==2.8.0->torchaudio==2.8.0) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in d:\comfyui\venv\lib\site-packages (from jinja2->torch==2.8.0->torchaudio==2.8.0) (3.0.2)
+Using cached torch-2.8.0-cp312-cp312-win_amd64.whl (241.3 MB)
+Installing collected packages: torch
+  Attempting uninstall: torch
+    Found existing installation: torch 2.9.0.dev20250903+cu129
+    Uninstalling torch-2.9.0.dev20250903+cu129:
+      Successfully uninstalled torch-2.9.0.dev20250903+cu129
+Successfully installed torch-2.8.0
+(venv) PS D:\ComfyUI> python main.py
+Checkpoint files will always be loaded safely.
+Traceback (most recent call last):
+  File "D:\ComfyUI\main.py", line 147, in <module>
+    import execution
+  File "D:\ComfyUI\execution.py", line 15, in <module>
+    import comfy.model_management
+  File "D:\ComfyUI\comfy\model_management.py", line 236, in <module>
+    total_vram = get_total_memory(get_torch_device()) / (1024 * 1024)
+                                  ^^^^^^^^^^^^^^^^^^
+  File "D:\ComfyUI\comfy\model_management.py", line 186, in get_torch_device
+    return torch.device(torch.cuda.current_device())
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ComfyUI\venv\Lib\site-packages\torch\cuda\__init__.py", line 1071, in current_device
+    _lazy_init()
+  File "D:\ComfyUI\venv\Lib\site-packages\torch\cuda\__init__.py", line 403, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+(venv) PS D:\ComfyUI> pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu129
+Looking in indexes: https://download.pytorch.org/whl/cu129
+Requirement already satisfied: torch in d:\comfyui\venv\lib\site-packages (2.8.0)
+Requirement already satisfied: torchvision in d:\comfyui\venv\lib\site-packages (0.24.0.dev20250901+cu129)
+Requirement already satisfied: filelock in d:\comfyui\venv\lib\site-packages (from torch) (3.19.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in d:\comfyui\venv\lib\site-packages (from torch) (4.15.0)
+Requirement already satisfied: sympy>=1.13.3 in d:\comfyui\venv\lib\site-packages (from torch) (1.14.0)
+Requirement already satisfied: networkx in d:\comfyui\venv\lib\site-packages (from torch) (3.5)
+Requirement already satisfied: jinja2 in d:\comfyui\venv\lib\site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in d:\comfyui\venv\lib\site-packages (from torch) (2025.9.0)
+Requirement already satisfied: setuptools in d:\comfyui\venv\lib\site-packages (from torch) (80.9.0)
+Requirement already satisfied: numpy in d:\comfyui\venv\lib\site-packages (from torchvision) (2.3.2)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in d:\comfyui\venv\lib\site-packages (from torchvision) (11.3.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in d:\comfyui\venv\lib\site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in d:\comfyui\venv\lib\site-packages (from jinja2->torch) (3.0.2)
+(venv) PS D:\ComfyUI> python main.py
+Checkpoint files will always be loaded safely.
+Traceback (most recent call last):
+  File "D:\ComfyUI\main.py", line 147, in <module>
+    import execution
+  File "D:\ComfyUI\execution.py", line 15, in <module>
+    import comfy.model_management
+  File "D:\ComfyUI\comfy\model_management.py", line 236, in <module>
+    total_vram = get_total_memory(get_torch_device()) / (1024 * 1024)
+                                  ^^^^^^^^^^^^^^^^^^
+  File "D:\ComfyUI\comfy\model_management.py", line 186, in get_torch_device
+    return torch.device(torch.cuda.current_device())
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ComfyUI\venv\Lib\site-packages\torch\cuda\__init__.py", line 1071, in current_device
+    _lazy_init()
+  File "D:\ComfyUI\venv\Lib\site-packages\torch\cuda\__init__.py", line 403, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+(venv) PS D:\ComfyUI> pip uninstall torch torchvision
+Found existing installation: torch 2.8.0
+Uninstalling torch-2.8.0:
+  Would remove:
+    d:\comfyui\venv\lib\site-packages\functorch\*
+    d:\comfyui\venv\lib\site-packages\torch-2.8.0.dist-info\*
+    d:\comfyui\venv\lib\site-packages\torch\*
+    d:\comfyui\venv\lib\site-packages\torchgen\*
+    d:\comfyui\venv\scripts\torchfrtrace.exe
+    d:\comfyui\venv\scripts\torchrun.exe
+Proceed (Y/n)? y
+  Successfully uninstalled torch-2.8.0
+Found existing installation: torchvision 0.24.0.dev20250901+cu129
+Uninstalling torchvision-0.24.0.dev20250901+cu129:
+  Would remove:
+    d:\comfyui\venv\lib\site-packages\torchvision-0.24.0.dev20250901+cu129.dist-info\*
+    d:\comfyui\venv\lib\site-packages\torchvision\*
+Proceed (Y/n)? y
+  Successfully uninstalled torchvision-0.24.0.dev20250901+cu129
+(venv) PS D:\ComfyUI> pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu129
+Looking in indexes: https://download.pytorch.org/whl/cu129
+Collecting torch
+  Using cached https://download.pytorch.org/whl/cu129/torch-2.8.0%2Bcu129-cp312-cp312-win_amd64.whl.metadata (29 kB)
+Collecting torchvision
+  Using cached https://download.pytorch.org/whl/cu129/torchvision-0.23.0%2Bcu129-cp312-cp312-win_amd64.whl.metadata (6.3 kB)
+Requirement already satisfied: filelock in d:\comfyui\venv\lib\site-packages (from torch) (3.19.1)
+Requirement already satisfied: typing-extensions>=4.10.0 in d:\comfyui\venv\lib\site-packages (from torch) (4.15.0)
+Requirement already satisfied: sympy>=1.13.3 in d:\comfyui\venv\lib\site-packages (from torch) (1.14.0)
+Requirement already satisfied: networkx in d:\comfyui\venv\lib\site-packages (from torch) (3.5)
+Requirement already satisfied: jinja2 in d:\comfyui\venv\lib\site-packages (from torch) (3.1.6)
+Requirement already satisfied: fsspec in d:\comfyui\venv\lib\site-packages (from torch) (2025.9.0)
+Requirement already satisfied: setuptools in d:\comfyui\venv\lib\site-packages (from torch) (80.9.0)
+Requirement already satisfied: numpy in d:\comfyui\venv\lib\site-packages (from torchvision) (2.3.2)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in d:\comfyui\venv\lib\site-packages (from torchvision) (11.3.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in d:\comfyui\venv\lib\site-packages (from sympy>=1.13.3->torch) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in d:\comfyui\venv\lib\site-packages (from jinja2->torch) (3.0.2)
+Using cached https://download.pytorch.org/whl/cu129/torch-2.8.0%2Bcu129-cp312-cp312-win_amd64.whl (3571.8 MB)
+Using cached https://download.pytorch.org/whl/cu129/torchvision-0.23.0%2Bcu129-cp312-cp312-win_amd64.whl (8.1 MB)
+Installing collected packages: torch, torchvision
+Successfully installed torch-2.8.0+cu129 torchvision-0.23.0+cu129
+(venv) PS D:\ComfyUI> python main.py
+Checkpoint files will always be loaded safely.
+Total VRAM 24564 MB, total RAM 98162 MB
+pytorch version: 2.8.0+cu129
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4090 : cudaMallocAsync
+Using pytorch attention
+Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+ComfyUI version: 0.3.57
+ComfyUI frontend version: 1.25.11
+[Prompt Server] web root: D:\ComfyUI\venv\Lib\site-packages\comfyui_frontend_package\static
+
+Import times for custom nodes:
+   0.0 seconds: D:\ComfyUI\custom_nodes\websocket_image_save.py
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+To see the GUI go to: http://127.0.0.1:8188
+
+Stopped server
+(venv) PS D:\ComfyUI> pip install https://github.com/Comfy-Org/ComfyUI-Manager.git
+Collecting https://github.com/Comfy-Org/ComfyUI-Manager.git
+  Downloading https://github.com/Comfy-Org/ComfyUI-Manager.git
+     \ 469.0 kB 6.9 MB/s 0:00:00
+  ERROR: Cannot unpack file C:\Users\james\AppData\Local\Temp\pip-unpack-fuh4w4o9\ComfyUI-Manager.git (downloaded from C:\Users\james\AppData\Local\Temp\pip-req-build-9zvehn4e, content-type: text/html; charset=utf-8); cannot detect archive format
+ERROR: Cannot determine archive format of C:\Users\james\AppData\Local\Temp\pip-req-build-9zvehn4e
+(venv) PS D:\ComfyUI> cd .\custom_nodes\
+(venv) PS D:\ComfyUI\custom_nodes> git clone https://github.com/Comfy-Org/ComfyUI-Manager.git
+Cloning into 'ComfyUI-Manager'...
+remote: Enumerating objects: 23963, done.
+remote: Counting objects: 100% (552/552), done.
+remote: Compressing objects: 100% (276/276), done.
+remote: Total 23963 (delta 432), reused 276 (delta 276), pack-reused 23411 (from 3)
+Receiving objects: 100% (23963/23963), 69.88 MiB | 48.95 MiB/s, done.
+Resolving deltas: 100% (17730/17730), done.
+(venv) PS D:\ComfyUI\custom_nodes> cd ..
+(venv) PS D:\ComfyUI> python main.py
+[START] Security scan
+[DONE] Security scan
+## ComfyUI-Manager: installing dependencies. (GitPython)
+## ComfyUI-Manager: installing dependencies done.
+** ComfyUI startup time: 2025-09-04 17:39:00.287
+** Platform: Windows
+** Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+** Python executable: D:\ComfyUI\venv\Scripts\python.exe
+** ComfyUI Path: D:\ComfyUI
+** ComfyUI Base Folder Path: D:\ComfyUI
+** User directory: D:\ComfyUI\user
+** ComfyUI-Manager config path: D:\ComfyUI\user\default\ComfyUI-Manager\config.ini
+** Log path: D:\ComfyUI\user\comfyui.log
+
+Prestartup times for custom nodes:
+  18.0 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+
+Checkpoint files will always be loaded safely.
+Total VRAM 24564 MB, total RAM 98162 MB
+pytorch version: 2.8.0+cu129
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4090 : cudaMallocAsync
+Using pytorch attention
+Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+ComfyUI version: 0.3.57
+ComfyUI frontend version: 1.25.11
+[Prompt Server] web root: D:\ComfyUI\venv\Lib\site-packages\comfyui_frontend_package\static
+### Loading: ComfyUI-Manager (V3.36)
+[ComfyUI-Manager] network_mode: public
+### ComfyUI Version: v0.3.57-2-gd7f1c7f0 | Released on '2025-09-04'
+
+Import times for custom nodes:
+   0.0 seconds: D:\ComfyUI\custom_nodes\websocket_image_save.py
+   0.5 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+To see the GUI go to: http://127.0.0.1:8188
+FETCH ComfyRegistry Data: 5/96
+FETCH ComfyRegistry Data: 10/96
+FETCH ComfyRegistry Data: 15/96
+FETCH ComfyRegistry Data: 20/96
+FETCH ComfyRegistry Data: 25/96
+FETCH ComfyRegistry Data: 30/96
+FETCH ComfyRegistry Data: 35/96
+FETCH ComfyRegistry Data: 40/96
+FETCH DATA from: D:\ComfyUI\user\default\ComfyUI-Manager\cache\1514988643_custom-node-list.json [DONE]
+FETCH DATA from: D:\ComfyUI\user\default\ComfyUI-Manager\cache\746607195_github-stats.json [DONE]
+FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extras.json [DONE]
+FETCH DATA from: D:\ComfyUI\user\default\ComfyUI-Manager\cache\1742899825_extension-node-map.json [DONE]
+FETCH ComfyRegistry Data: 45/96
+FETCH ComfyRegistry Data: 50/96
+FETCH ComfyRegistry Data: 55/96
+FETCH DATA from: D:\ComfyUI\custom_nodes\ComfyUI-Manager\custom-node-list.json [DONE]
+FETCH DATA from: D:\ComfyUI\user\default\ComfyUI-Manager\cache\1514988643_custom-node-list.json [DONE]
+Download: git clone 'https://github.com/Fannovel16/comfyui_controlnet_aux'
+[!]
+100%|██████████| 1883.0/1883.0 [00:00<00:00, 5009.27it/s]
+100%|██████████| 1883.0/1883.0 [00:00<00:00, 5009.27it/s]
+100%|██████████| 404.0/404.0 [00:00<00:00, 906.61it/s]
+100%|██████████| 404.0/404.0 [00:00<00:00, 906.61it/s]
+100%|██████████| 5553.0/5553.0 [00:01<00:00, 4004.51it/s]
+100%|██████████| 5553.0/5553.0 [00:01<00:00, 4004.51it/s]
+100%|██████████| 3006.0/3006.0 [00:01<00:00, 2112.36it/s]
+FETCH ComfyRegistry Data: 60/96
+100%|██████████| 3006.0/3006.0 [00:01<00:00, 2112.36it/s]
+100%|██████████| 3006.0/3006.0 [00:02<00:00, 1313.17it/s]
+Install: pip packages
+Installation was successful.
+
+[ComfyUI-Manager] Queued works are completed.
+{'install': 1}
+
+After restarting ComfyUI, please refresh the browser.
+
+Restarting... [Legacy Mode]
+
+
+Command: ['"D:\\ComfyUI\\venv\\Scripts\\python.exe"', '"main.py"']
+(venv) PS D:\ComfyUI> [START] Security scan
+[DONE] Security scan
+## ComfyUI-Manager: installing dependencies done.
+** ComfyUI startup time: 2025-09-04 17:39:45.308
+** Platform: Windows
+** Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+** Python executable: D:\ComfyUI\venv\Scripts\python.exe
+** ComfyUI Path: D:\ComfyUI
+** ComfyUI Base Folder Path: D:\ComfyUI
+** User directory: D:\ComfyUI\user
+** ComfyUI-Manager config path: D:\ComfyUI\user\default\ComfyUI-Manager\config.ini
+** Log path: D:\ComfyUI\user\comfyui.log
+
+#######################################################################
+[ComfyUI-Manager] Starting dependency installation/(de)activation for the extension
+
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'importlib_metadata']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting importlib_metadata
+   Using cached importlib_metadata-8.7.0-py3-none-any.whl.metadata (4.8 kB)
+ Collecting zipp>=3.20 (from importlib_metadata)
+   Using cached zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+ Using cached importlib_metadata-8.7.0-py3-none-any.whl (27 kB)
+ Using cached zipp-3.23.0-py3-none-any.whl (10 kB)
+ Installing collected packages: zipp, importlib_metadata
+
+ Successfully installed importlib_metadata-8.7.0 zipp-3.23.0
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'opencv-python>=4.7.0.72']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting opencv-python>=4.7.0.72
+   Using cached opencv_python-4.12.0.88-cp37-abi3-win_amd64.whl.metadata (19 kB)
+ Collecting numpy<2.3.0,>=2 (from opencv-python>=4.7.0.72)
+   Using cached numpy-2.2.6-cp312-cp312-win_amd64.whl.metadata (60 kB)
+ Using cached opencv_python-4.12.0.88-cp37-abi3-win_amd64.whl (39.0 MB)
+ Using cached numpy-2.2.6-cp312-cp312-win_amd64.whl (12.6 MB)
+ Installing collected packages: numpy, opencv-python
+   Attempting uninstall: numpy
+     Found existing installation: numpy 2.3.2
+     Uninstalling numpy-2.3.2:
+       Successfully uninstalled numpy-2.3.2
+
+ Successfully installed numpy-2.2.6 opencv-python-4.12.0.88
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'scikit-image']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting scikit-image
+   Using cached scikit_image-0.25.2-cp312-cp312-win_amd64.whl.metadata (14 kB)
+     Collecting imageio!=2.35.0,>=2.33 (from scikit-image)
+   Using cached imageio-2.37.0-py3-none-any.whl.metadata (5.2 kB)
+ Collecting tifffile>=2022.8.12 (from scikit-image)
+   Downloading tifffile-2025.8.28-py3-none-any.whl.metadata (32 kB)
+  Collecting lazy-loader>=0.4 (from scikit-image)
+   Using cached lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+ Using cached scikit_image-0.25.2-cp312-cp312-win_amd64.whl (12.9 MB)
+ Using cached imageio-2.37.0-py3-none-any.whl (315 kB)
+ Using cached lazy_loader-0.4-py3-none-any.whl (12 kB)
+ Downloading tifffile-2025.8.28-py3-none-any.whl (231 kB)
+ Installing collected packages: tifffile, lazy-loader, imageio, scikit-image
+
+ Successfully installed imageio-2.37.0 lazy-loader-0.4 scikit-image-0.25.2 tifffile-2025.8.28
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'python-dateutil']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting python-dateutil
+   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+ Collecting six>=1.5 (from python-dateutil)
+   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+ Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+ Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+ Installing collected packages: six, python-dateutil
+
+ Successfully installed python-dateutil-2.9.0.post0 six-1.17.0
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'mediapipe']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting mediapipe
+   Using cached mediapipe-0.10.21-cp312-cp312-win_amd64.whl.metadata (10 kB)
+ Collecting absl-py (from mediapipe)
+   Using cached absl_py-2.3.1-py3-none-any.whl.metadata (3.3 kB)
+  Collecting flatbuffers>=2.0 (from mediapipe)
+   Using cached flatbuffers-25.2.10-py2.py3-none-any.whl.metadata (875 bytes)
+ Collecting jax (from mediapipe)
+   Using cached jax-0.7.1-py3-none-any.whl.metadata (13 kB)
+ Collecting jaxlib (from mediapipe)
+   Using cached jaxlib-0.7.1-cp312-cp312-win_amd64.whl.metadata (1.3 kB)
+ Collecting matplotlib (from mediapipe)
+   Downloading matplotlib-3.10.6-cp312-cp312-win_amd64.whl.metadata (11 kB)
+ Collecting numpy<2 (from mediapipe)
+   Using cached numpy-1.26.4-cp312-cp312-win_amd64.whl.metadata (61 kB)
+ Collecting opencv-contrib-python (from mediapipe)
+   Using cached opencv_contrib_python-4.12.0.88-cp37-abi3-win_amd64.whl.metadata (20 kB)
+ Collecting protobuf<5,>=4.25.3 (from mediapipe)
+   Using cached protobuf-4.25.8-cp310-abi3-win_amd64.whl.metadata (541 bytes)
+ Collecting sounddevice>=0.4.4 (from mediapipe)
+   Using cached sounddevice-0.5.2-py3-none-win_amd64.whl.metadata (1.6 kB)
+    Collecting ml_dtypes>=0.5.0 (from jax->mediapipe)
+   Using cached ml_dtypes-0.5.3-cp312-cp312-win_amd64.whl.metadata (9.2 kB)
+ Collecting opt_einsum (from jax->mediapipe)
+   Using cached opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+  Collecting contourpy>=1.0.1 (from matplotlib->mediapipe)
+   Using cached contourpy-1.3.3-cp312-cp312-win_amd64.whl.metadata (5.5 kB)
+ Collecting cycler>=0.10 (from matplotlib->mediapipe)
+   Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+ Collecting fonttools>=4.22.0 (from matplotlib->mediapipe)
+   Downloading fonttools-4.59.2-cp312-cp312-win_amd64.whl.metadata (111 kB)
+ Collecting kiwisolver>=1.3.1 (from matplotlib->mediapipe)
+   Using cached kiwisolver-1.4.9-cp312-cp312-win_amd64.whl.metadata (6.4 kB)
+   Collecting pyparsing>=2.3.1 (from matplotlib->mediapipe)
+   Using cached pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+   INFO: pip is looking at multiple versions of opencv-contrib-python to determine which version is compatible with other requirements. This could take a while.
+ Collecting opencv-contrib-python (from mediapipe)
+   Using cached opencv_contrib_python-4.11.0.86-cp37-abi3-win_amd64.whl.metadata (20 kB)
+ Using cached mediapipe-0.10.21-cp312-cp312-win_amd64.whl (51.0 MB)
+ Using cached numpy-1.26.4-cp312-cp312-win_amd64.whl (15.5 MB)
+ Using cached protobuf-4.25.8-cp310-abi3-win_amd64.whl (413 kB)
+ Using cached flatbuffers-25.2.10-py2.py3-none-any.whl (30 kB)
+ Using cached sounddevice-0.5.2-py3-none-win_amd64.whl (363 kB)
+ Using cached absl_py-2.3.1-py3-none-any.whl (135 kB)
+ Using cached jax-0.7.1-py3-none-any.whl (2.8 MB)
+ Using cached jaxlib-0.7.1-cp312-cp312-win_amd64.whl (61.2 MB)
+ Using cached ml_dtypes-0.5.3-cp312-cp312-win_amd64.whl (208 kB)
+ Downloading matplotlib-3.10.6-cp312-cp312-win_amd64.whl (8.1 MB)
+    ---------------------------------------- 8.1/8.1 MB 38.7 MB/s  0:00:00
+ Using cached contourpy-1.3.3-cp312-cp312-win_amd64.whl (226 kB)
+ Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+ Downloading fonttools-4.59.2-cp312-cp312-win_amd64.whl (2.3 MB)
+    ---------------------------------------- 2.3/2.3 MB 64.3 MB/s  0:00:00
+ Using cached kiwisolver-1.4.9-cp312-cp312-win_amd64.whl (73 kB)
+ Using cached pyparsing-3.2.3-py3-none-any.whl (111 kB)
+ Using cached opencv_contrib_python-4.11.0.86-cp37-abi3-win_amd64.whl (46.2 MB)
+ Using cached opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+ Installing collected packages: flatbuffers, pyparsing, protobuf, opt_einsum, numpy, kiwisolver, fonttools, cycler, absl-py, sounddevice, opencv-contrib-python, ml_dtypes, contourpy, matplotlib, jaxlib, jax, mediapipe
+   Attempting uninstall: numpy
+     Found existing installation: numpy 2.2.6
+     Uninstalling numpy-2.2.6:
+       Successfully uninstalled numpy-2.2.6
+
+ Successfully installed absl-py-2.3.1 contourpy-1.3.3 cycler-0.12.1 flatbuffers-25.2.10 fonttools-4.59.2 jax-0.7.1 jaxlib-0.7.1 kiwisolver-1.4.9 matplotlib-3.10.6 mediapipe-0.10.21 ml_dtypes-0.5.3 numpy-1.26.4 opencv-contrib-python-4.11.0.86 opt_einsum-3.4.0 protobuf-4.25.8 pyparsing-3.2.3 sounddevice-0.5.2
+[!] ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+[!] opencv-python 4.12.0.88 requires numpy<2.3.0,>=2; python_version >= "3.9", but you have numpy 1.26.4 which is incompatible.
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'svglib']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting svglib
+   Using cached svglib-1.5.1-py3-none-any.whl
+ Collecting reportlab (from svglib)
+   Using cached reportlab-4.4.3-py3-none-any.whl.metadata (1.7 kB)
+ Collecting lxml (from svglib)
+   Using cached lxml-6.0.1-cp312-cp312-win_amd64.whl.metadata (3.9 kB)
+ Collecting tinycss2>=0.6.0 (from svglib)
+   Using cached tinycss2-1.4.0-py3-none-any.whl.metadata (3.0 kB)
+ Collecting cssselect2>=0.2.0 (from svglib)
+   Using cached cssselect2-0.8.0-py3-none-any.whl.metadata (2.9 kB)
+ Collecting webencodings (from cssselect2>=0.2.0->svglib)
+   Using cached webencodings-0.5.1-py2.py3-none-any.whl.metadata (2.1 kB)
+   Using cached cssselect2-0.8.0-py3-none-any.whl (15 kB)
+ Using cached tinycss2-1.4.0-py3-none-any.whl (26 kB)
+ Using cached webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+ Using cached lxml-6.0.1-cp312-cp312-win_amd64.whl (4.0 MB)
+ Using cached reportlab-4.4.3-py3-none-any.whl (2.0 MB)
+ Installing collected packages: webencodings, tinycss2, reportlab, lxml, cssselect2, svglib
+
+ Successfully installed cssselect2-0.8.0 lxml-6.0.1 reportlab-4.4.3 svglib-1.5.1 tinycss2-1.4.0 webencodings-0.5.1
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'fvcore']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting fvcore
+   Using cached fvcore-0.1.5.post20221221-py3-none-any.whl
+  Collecting yacs>=0.1.6 (from fvcore)
+   Using cached yacs-0.1.8-py3-none-any.whl.metadata (639 bytes)
+   Collecting termcolor>=1.1 (from fvcore)
+   Using cached termcolor-3.1.0-py3-none-any.whl.metadata (6.4 kB)
+  Collecting tabulate (from fvcore)
+   Using cached tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+ Collecting iopath>=0.1.7 (from fvcore)
+   Using cached iopath-0.1.10-py3-none-any.whl
+  Collecting portalocker (from iopath>=0.1.7->fvcore)
+   Using cached portalocker-3.2.0-py3-none-any.whl.metadata (8.7 kB)
+ Collecting pywin32>=226 (from portalocker->iopath>=0.1.7->fvcore)
+   Using cached pywin32-311-cp312-cp312-win_amd64.whl.metadata (10 kB)
+  Using cached termcolor-3.1.0-py3-none-any.whl (7.7 kB)
+ Using cached yacs-0.1.8-py3-none-any.whl (14 kB)
+ Using cached portalocker-3.2.0-py3-none-any.whl (22 kB)
+ Using cached pywin32-311-cp312-cp312-win_amd64.whl (9.5 MB)
+ Using cached tabulate-0.9.0-py3-none-any.whl (35 kB)
+ Installing collected packages: pywin32, yacs, termcolor, tabulate, portalocker, iopath, fvcore
+
+ Successfully installed fvcore-0.1.5.post20221221 iopath-0.1.10 portalocker-3.2.0 pywin32-311 tabulate-0.9.0 termcolor-3.1.0 yacs-0.1.8
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'yapf']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting yapf
+   Using cached yapf-0.43.0-py3-none-any.whl.metadata (46 kB)
+ Collecting platformdirs>=3.5.1 (from yapf)
+   Downloading platformdirs-4.4.0-py3-none-any.whl.metadata (12 kB)
+ Using cached yapf-0.43.0-py3-none-any.whl (256 kB)
+ Downloading platformdirs-4.4.0-py3-none-any.whl (18 kB)
+ Installing collected packages: platformdirs, yapf
+
+ Successfully installed platformdirs-4.4.0 yapf-0.43.0
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'omegaconf']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting omegaconf
+   Using cached omegaconf-2.3.0-py3-none-any.whl.metadata (3.9 kB)
+ Collecting antlr4-python3-runtime==4.9.* (from omegaconf)
+   Using cached antlr4_python3_runtime-4.9.3-py3-none-any.whl
+  Using cached omegaconf-2.3.0-py3-none-any.whl (79 kB)
+ Installing collected packages: antlr4-python3-runtime, omegaconf
+
+ Successfully installed antlr4-python3-runtime-4.9.3 omegaconf-2.3.0
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'ftfy']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting ftfy
+   Using cached ftfy-6.3.1-py3-none-any.whl.metadata (7.3 kB)
+ Collecting wcwidth (from ftfy)
+   Using cached wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+ Using cached ftfy-6.3.1-py3-none-any.whl (44 kB)
+ Using cached wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+ Installing collected packages: wcwidth, ftfy
+
+ Successfully installed ftfy-6.3.1 wcwidth-0.2.13
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'addict']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting addict
+   Using cached addict-2.4.0-py3-none-any.whl.metadata (1.0 kB)
+ Using cached addict-2.4.0-py3-none-any.whl (3.8 kB)
+ Installing collected packages: addict
+ Successfully installed addict-2.4.0
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'yacs']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'trimesh[easy]']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting trimesh[easy]
+   Downloading trimesh-4.8.1-py3-none-any.whl.metadata (18 kB)
+  Collecting colorlog (from trimesh[easy])
+   Using cached colorlog-6.9.0-py3-none-any.whl.metadata (10 kB)
+ Collecting manifold3d>=2.3.0 (from trimesh[easy])
+   Using cached manifold3d-3.2.1-cp312-cp312-win_amd64.whl.metadata (18 kB)
+     Collecting svg.path (from trimesh[easy])
+   Using cached svg_path-7.0-py2.py3-none-any.whl.metadata (14 kB)
+ Collecting pycollada (from trimesh[easy])
+   Using cached pycollada-0.9.2-py3-none-any.whl.metadata (1.7 kB)
+ Collecting shapely (from trimesh[easy])
+   Using cached shapely-2.1.1-cp312-cp312-win_amd64.whl.metadata (7.0 kB)
+ Collecting xxhash (from trimesh[easy])
+   Using cached xxhash-3.5.0-cp312-cp312-win_amd64.whl.metadata (13 kB)
+ Collecting rtree (from trimesh[easy])
+   Using cached rtree-1.4.1-py3-none-win_amd64.whl.metadata (2.2 kB)
+ Collecting httpx (from trimesh[easy])
+   Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+   Collecting vhacdx (from trimesh[easy])
+   Using cached vhacdx-0.0.8.post2-cp312-cp312-win_amd64.whl.metadata (1.1 kB)
+ Collecting mapbox_earcut>=1.0.2 (from trimesh[easy])
+   Using cached mapbox_earcut-1.0.3-cp312-cp312-win_amd64.whl.metadata (2.2 kB)
+  Collecting anyio (from httpx->trimesh[easy])
+   Using cached anyio-4.10.0-py3-none-any.whl.metadata (4.0 kB)
+  Collecting httpcore==1.* (from httpx->trimesh[easy])
+   Using cached httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+   Collecting sniffio>=1.1 (from anyio->httpx->trimesh[easy])
+   Using cached sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+        Downloading trimesh-4.8.1-py3-none-any.whl (728 kB)
+    ---------------------------------------- 728.5/728.5 kB 31.1 MB/s  0:00:00
+ Using cached manifold3d-3.2.1-cp312-cp312-win_amd64.whl (950 kB)
+ Using cached mapbox_earcut-1.0.3-cp312-cp312-win_amd64.whl (72 kB)
+ Using cached colorlog-6.9.0-py3-none-any.whl (11 kB)
+ Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+ Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+ Using cached anyio-4.10.0-py3-none-any.whl (107 kB)
+ Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+ Using cached pycollada-0.9.2-py3-none-any.whl (128 kB)
+ Using cached rtree-1.4.1-py3-none-win_amd64.whl (389 kB)
+ Using cached shapely-2.1.1-cp312-cp312-win_amd64.whl (1.7 MB)
+ Using cached svg_path-7.0-py2.py3-none-any.whl (18 kB)
+ Using cached vhacdx-0.0.8.post2-cp312-cp312-win_amd64.whl (184 kB)
+ Using cached xxhash-3.5.0-cp312-cp312-win_amd64.whl (30 kB)
+ Installing collected packages: xxhash, vhacdx, trimesh, svg.path, sniffio, shapely, rtree, mapbox_earcut, manifold3d, httpcore, colorlog, pycollada, anyio, httpx
+
+ Successfully installed anyio-4.10.0 colorlog-6.9.0 httpcore-1.0.9 httpx-0.28.1 manifold3d-3.2.1 mapbox_earcut-1.0.3 pycollada-0.9.2 rtree-1.4.1 shapely-2.1.1 sniffio-1.3.1 svg.path-7.0 trimesh-4.8.1 vhacdx-0.0.8.post2 xxhash-3.5.0
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'albumentations']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting albumentations
+   Using cached albumentations-2.0.8-py3-none-any.whl.metadata (43 kB)
+     Collecting albucore==0.0.24 (from albumentations)
+   Using cached albucore-0.0.24-py3-none-any.whl.metadata (5.3 kB)
+ Collecting opencv-python-headless>=4.9.0.80 (from albumentations)
+   Using cached opencv_python_headless-4.12.0.88-cp37-abi3-win_amd64.whl.metadata (20 kB)
+ Collecting stringzilla>=3.10.4 (from albucore==0.0.24->albumentations)
+   Using cached stringzilla-3.12.6-cp312-cp312-win_amd64.whl.metadata (81 kB)
+ Collecting simsimd>=5.9.2 (from albucore==0.0.24->albumentations)
+   Using cached simsimd-6.5.1-cp312-cp312-win_amd64.whl.metadata (72 kB)
+ Collecting numpy>=1.24.4 (from albumentations)
+   Using cached numpy-2.2.6-cp312-cp312-win_amd64.whl.metadata (60 kB)
+     Using cached albumentations-2.0.8-py3-none-any.whl (369 kB)
+ Using cached albucore-0.0.24-py3-none-any.whl (15 kB)
+ Using cached opencv_python_headless-4.12.0.88-cp37-abi3-win_amd64.whl (38.9 MB)
+ Using cached numpy-2.2.6-cp312-cp312-win_amd64.whl (12.6 MB)
+ Using cached simsimd-6.5.1-cp312-cp312-win_amd64.whl (94 kB)
+ Using cached stringzilla-3.12.6-cp312-cp312-win_amd64.whl (79 kB)
+ Installing collected packages: stringzilla, simsimd, numpy, opencv-python-headless, albucore, albumentations
+   Attempting uninstall: numpy
+     Found existing installation: numpy 1.26.4
+     Uninstalling numpy-1.26.4:
+       Successfully uninstalled numpy-1.26.4
+
+ [!]Successfully installed albucore-0.0.24 albumentations-2.0.8 numpy-2.2.6 opencv-python-headless-4.12.0.88 simsimd-6.5.1 stringzilla-3.12.6
+ ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+[!] mediapipe 0.10.21 requires numpy<2, but you have numpy 2.2.6 which is incompatible.
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'scikit-learn']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+ Collecting scikit-learn
+   Using cached scikit_learn-1.7.1-cp312-cp312-win_amd64.whl.metadata (11 kB)
+   Collecting joblib>=1.2.0 (from scikit-learn)
+   Downloading joblib-1.5.2-py3-none-any.whl.metadata (5.6 kB)
+ Collecting threadpoolctl>=3.1.0 (from scikit-learn)
+   Using cached threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+ Using cached scikit_learn-1.7.1-cp312-cp312-win_amd64.whl (8.7 MB)
+ Downloading joblib-1.5.2-py3-none-any.whl (308 kB)
+ Using cached threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+ Installing collected packages: threadpoolctl, joblib, scikit-learn
+
+ Successfully installed joblib-1.5.2 scikit-learn-1.7.1 threadpoolctl-3.6.0
+
+## ComfyUI-Manager: EXECUTE => ['D:\\ComfyUI\\venv\\Scripts\\python.exe', '-m', 'pip', 'install', 'matplotlib']
+
+## Execute management script for 'D:\ComfyUI\custom_nodes\comfyui_controlnet_aux'
+
+[ComfyUI-Manager] Startup script completed.
+#######################################################################
+
+[ComfyUI-Manager] Restarting to reapply dependency installation.
+Command: ['"D:\\ComfyUI\\venv\\Scripts\\python.exe"', '"main.py"']
+--------------------------------------------------------------------------
+
+[START] Security scan
+[DONE] Security scan
+## ComfyUI-Manager: installing dependencies done.
+** ComfyUI startup time: 2025-09-04 17:40:59.776
+** Platform: Windows
+** Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+** Python executable: D:\ComfyUI\venv\Scripts\python.exe
+** ComfyUI Path: D:\ComfyUI
+** ComfyUI Base Folder Path: D:\ComfyUI
+** User directory: D:\ComfyUI\user
+** ComfyUI-Manager config path: D:\ComfyUI\user\default\ComfyUI-Manager\config.ini
+** Log path: D:\ComfyUI\user\comfyui.log
+
+Prestartup times for custom nodes:
+   1.4 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+
+Checkpoint files will always be loaded safely.
+Total VRAM 24564 MB, total RAM 98162 MB
+pytorch version: 2.8.0+cu129
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4090 : cudaMallocAsync
+Using pytorch attention
+Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+ComfyUI version: 0.3.57
+ComfyUI frontend version: 1.25.11
+[Prompt Server] web root: D:\ComfyUI\venv\Lib\site-packages\comfyui_frontend_package\static
+### Loading: ComfyUI-Manager (V3.36)
+[ComfyUI-Manager] network_mode: public
+### ComfyUI Version: v0.3.57-2-gd7f1c7f0 | Released on '2025-09-04'
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ckpts path: D:\ComfyUI\custom_nodes\comfyui_controlnet_aux\ckpts
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using symlinks: False
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider']
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+D:\ComfyUI\custom_nodes\comfyui_controlnet_aux\node_wrappers\dwpose.py:26: UserWarning: DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly
+  warnings.warn("DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly")
+
+Import times for custom nodes:
+   0.0 seconds: D:\ComfyUI\custom_nodes\websocket_image_save.py
+   0.3 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+   1.0 seconds: D:\ComfyUI\custom_nodes\comfyui_controlnet_aux
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+To see the GUI go to: http://127.0.0.1:8188
+FETCH ComfyRegistry Data: 5/96
+FETCH ComfyRegistry Data: 10/96
+FETCH ComfyRegistry Data: 15/96
+FETCH ComfyRegistry Data: 20/96
+FETCH ComfyRegistry Data: 25/96
+FETCH ComfyRegistry Data: 30/96
+FETCH ComfyRegistry Data: 35/96
+FETCH ComfyRegistry Data: 40/96
+FETCH ComfyRegistry Data: 45/96
+FETCH ComfyRegistry Data: 50/96
+FETCH ComfyRegistry Data: 55/96
+FETCH ComfyRegistry Data: 60/96
+FETCH ComfyRegistry Data: 65/96
+FETCH ComfyRegistry Data: 70/96
+FETCH ComfyRegistry Data: 75/96
+FETCH ComfyRegistry Data: 80/96
+FETCH ComfyRegistry Data: 85/96
+FETCH ComfyRegistry Data: 90/96
+FETCH ComfyRegistry Data: 95/96
+FETCH ComfyRegistry Data [DONE]
+[ComfyUI-Manager] default cache updated: https://api.comfy.org/nodes
+FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json [DONE]
+[ComfyUI-Manager] All startup tasks have been completed.
+                      ^C
+(venv) PS D:\ComfyUI> cd .\custom_nodes\
+(venv) PS D:\ComfyUI\custom_nodes> git clone https://github.com/rzasharp79/TuckerNuts_Nodes.git
+Cloning into 'TuckerNuts_Nodes'...
+remote: Enumerating objects: 85, done.
+remote: Counting objects: 100% (85/85), done.
+remote: Compressing objects: 100% (41/41), done.
+remote: Total 85 (delta 51), reused 74 (delta 40), pack-reused 0 (from 0)
+Receiving objects: 100% (85/85), 56.33 KiB | 2.82 MiB/s, done.
+Resolving deltas: 100% (51/51), done.
+(venv) PS D:\ComfyUI\custom_nodes> cd ..
+(venv) PS D:\ComfyUI> .\run.bat
+[START] Security scan
+[DONE] Security scan
+[ComfyUI-Manager] Logging failed: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\ComfyUI\\user\\comfyui.log' -> 'D:\\ComfyUI\\user\\comfyui.prev.log'
+## ComfyUI-Manager: installing dependencies done.
+** ComfyUI startup time: 2025-09-05 10:29:47.099
+** Platform: Windows
+** Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+** Python executable: D:\ComfyUI\venv\Scripts\python.exe
+** ComfyUI Path: D:\ComfyUI
+** ComfyUI Base Folder Path: D:\ComfyUI
+** User directory: D:\ComfyUI\user
+** ComfyUI-Manager config path: D:\ComfyUI\user\default\ComfyUI-Manager\config.ini
+** Log path: D:\ComfyUI\user\comfyui.log
+
+Prestartup times for custom nodes:
+   1.5 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+
+Checkpoint files will always be loaded safely.
+Total VRAM 24564 MB, total RAM 98162 MB
+pytorch version: 2.8.0+cu129
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4090 : cudaMallocAsync
+Using pytorch attention
+Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+ComfyUI version: 0.3.57
+ComfyUI frontend version: 1.25.11
+[Prompt Server] web root: D:\ComfyUI\venv\Lib\site-packages\comfyui_frontend_package\static
+### Loading: ComfyUI-Manager (V3.36)
+[ComfyUI-Manager] network_mode: public
+### ComfyUI Version: v0.3.57-2-gd7f1c7f0 | Released on '2025-09-04'
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ckpts path: D:\ComfyUI\custom_nodes\comfyui_controlnet_aux\ckpts
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using symlinks: False
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider']
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+D:\ComfyUI\custom_nodes\comfyui_controlnet_aux\node_wrappers\dwpose.py:26: UserWarning: DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly
+  warnings.warn("DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly")
+
+Import times for custom nodes:
+   0.0 seconds: D:\ComfyUI\custom_nodes\websocket_image_save.py
+   0.2 seconds: D:\ComfyUI\custom_nodes\TuckerNuts_Nodes
+   0.3 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+   0.5 seconds: D:\ComfyUI\custom_nodes\comfyui_controlnet_aux
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+Traceback (most recent call last):
+  File "D:\ComfyUI\main.py", line 365, in <module>
+    event_loop.run_until_complete(x)
+  File "C:\Users\james\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\ComfyUI\main.py", line 347, in start_all
+    await run(prompt_server, address=args.listen, port=args.port, verbose=not args.dont_print_server, call_on_start=call_on_start)
+  File "D:\ComfyUI\main.py", line 241, in run
+    await asyncio.gather(
+  File "D:\ComfyUI\server.py", line 972, in start_multi_address
+    await site.start()
+  File "D:\ComfyUI\venv\Lib\site-packages\aiohttp\web_runner.py", line 121, in start
+    self._server = await loop.create_server(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\james\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1584, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8188): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Cannot connect to comfyregistry.
+FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json[ComfyUI-Manager] Due to a network error, switching to local mode.
+=> custom-node-list.json
+=> cannot schedule new futures after shutdown
+FETCH DATA from: D:\ComfyUI\custom_nodes\ComfyUI-Manager\custom-node-list.json [DONE]
+[ComfyUI-Manager] All startup tasks have been completed.
+(venv) PS D:\ComfyUI> cd ..
+(venv) PS D:\> python main.py
+C:\Users\james\AppData\Local\Programs\Python\Python312\python.exe: can't open file 'D:\\main.py': [Errno 2] No such file or directory
+(venv) PS D:\> cd .\ComfyUI\
+(venv) PS D:\ComfyUI> python main.py
+[START] Security scan
+[DONE] Security scan
+[ComfyUI-Manager] Logging failed: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\ComfyUI\\user\\comfyui.log' -> 'D:\\ComfyUI\\user\\comfyui.prev.log'
+## ComfyUI-Manager: installing dependencies done.
+** ComfyUI startup time: 2025-09-05 10:30:18.538
+** Platform: Windows
+** Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+** Python executable: D:\ComfyUI\venv\Scripts\python.exe
+** ComfyUI Path: D:\ComfyUI
+** ComfyUI Base Folder Path: D:\ComfyUI
+** User directory: D:\ComfyUI\user
+** ComfyUI-Manager config path: D:\ComfyUI\user\default\ComfyUI-Manager\config.ini
+** Log path: D:\ComfyUI\user\comfyui.log
+
+Prestartup times for custom nodes:
+   1.5 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+
+Checkpoint files will always be loaded safely.
+Total VRAM 24564 MB, total RAM 98162 MB
+pytorch version: 2.8.0+cu129
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4090 : cudaMallocAsync
+Using pytorch attention
+Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+ComfyUI version: 0.3.57
+ComfyUI frontend version: 1.25.11
+[Prompt Server] web root: D:\ComfyUI\venv\Lib\site-packages\comfyui_frontend_package\static
+### Loading: ComfyUI-Manager (V3.36)
+[ComfyUI-Manager] network_mode: public
+### ComfyUI Version: v0.3.57-2-gd7f1c7f0 | Released on '2025-09-04'
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ckpts path: D:\ComfyUI\custom_nodes\comfyui_controlnet_aux\ckpts
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using symlinks: False
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider']
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+D:\ComfyUI\custom_nodes\comfyui_controlnet_aux\node_wrappers\dwpose.py:26: UserWarning: DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly
+  warnings.warn("DWPose: Onnxruntime not found or doesn't come with acceleration providers, switch to OpenCV with CPU device. DWPose might run very slowly")
+
+Import times for custom nodes:
+   0.0 seconds: D:\ComfyUI\custom_nodes\websocket_image_save.py
+   0.0 seconds: D:\ComfyUI\custom_nodes\TuckerNuts_Nodes
+   0.3 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+   0.5 seconds: D:\ComfyUI\custom_nodes\comfyui_controlnet_aux
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+Traceback (most recent call last):
+  File "D:\ComfyUI\main.py", line 365, in <module>
+    event_loop.run_until_complete(x)
+  File "C:\Users\james\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\ComfyUI\main.py", line 347, in start_all
+    await run(prompt_server, address=args.listen, port=args.port, verbose=not args.dont_print_server, call_on_start=call_on_start)
+  File "D:\ComfyUI\main.py", line 241, in run
+    await asyncio.gather(
+  File "D:\ComfyUI\server.py", line 972, in start_multi_address
+    await site.start()
+  File "D:\ComfyUI\venv\Lib\site-packages\aiohttp\web_runner.py", line 121, in start
+    self._server = await loop.create_server(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\james\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1584, in create_server
+    raise OSError(err.errno, msg) from None
+OSError: [Errno 10048] error while attempting to bind on address ('127.0.0.1', 8188): [winerror 10048] only one usage of each socket address (protocol/network address/port) is normally permitted
+Cannot connect to comfyregistry.
+FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json[ComfyUI-Manager] Due to a network error, switching to local mode.
+=> custom-node-list.json
+=> cannot schedule new futures after shutdown
+FETCH DATA from: D:\ComfyUI\custom_nodes\ComfyUI-Manager\custom-node-list.json [DONE]
+[ComfyUI-Manager] All startup tasks have been completed.
+(venv) PS D:\ComfyUI> ^C
+(venv) PS D:\ComfyUI>
+Restarting... [Legacy Mode]
+
+
+Command: ['"D:\\ComfyUI\\venv\\Scripts\\python.exe"', '"main.py"']
+[START] Security scan
+[DONE] Security scan
+## ComfyUI-Manager: installing dependencies done.
+** ComfyUI startup time: 2025-09-05 10:30:58.398
+** Platform: Windows
+** Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+** Python executable: D:\ComfyUI\venv\Scripts\python.exe
+** ComfyUI Path: D:\ComfyUI
+** ComfyUI Base Folder Path: D:\ComfyUI
+** User directory: D:\ComfyUI\user
+** ComfyUI-Manager config path: D:\ComfyUI\user\default\ComfyUI-Manager\config.ini
+** Log path: D:\ComfyUI\user\comfyui.log
+
+Prestartup times for custom nodes:
+   1.5 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+
+Checkpoint files will always be loaded safely.
+Total VRAM 24564 MB, total RAM 98162 MB
+pytorch version: 2.8.0+cu129
+Set vram state to: NORMAL_VRAM
+Device: cuda:0 NVIDIA GeForce RTX 4090 : cudaMallocAsync
+Using pytorch attention
+Python version: 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]
+ComfyUI version: 0.3.57
+ComfyUI frontend version: 1.25.11
+[Prompt Server] web root: D:\ComfyUI\venv\Lib\site-packages\comfyui_frontend_package\static
+### Loading: ComfyUI-Manager (V3.36)
+[ComfyUI-Manager] network_mode: public
+### ComfyUI Version: v0.3.57-2-gd7f1c7f0 | Released on '2025-09-04'
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ckpts path: D:\ComfyUI\custom_nodes\comfyui_controlnet_aux\ckpts
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using symlinks: False
+[D:\ComfyUI\custom_nodes\comfyui_controlnet_aux] | INFO -> Using ort providers: ['CUDAExecutionProvider', 'DirectMLExecutionProvider', 'OpenVINOExecutionProvider', 'ROCMExecutionProvider', 'CPUExecutionProvider', 'CoreMLExecutionProvider']
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/model-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/alter-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/github-stats.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json
+[ComfyUI-Manager] default cache updated: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/extension-node-map.json
+
+Import times for custom nodes:
+   0.0 seconds: D:\ComfyUI\custom_nodes\websocket_image_save.py
+   0.0 seconds: D:\ComfyUI\custom_nodes\TuckerNuts_Nodes
+   0.3 seconds: D:\ComfyUI\custom_nodes\ComfyUI-Manager
+   0.5 seconds: D:\ComfyUI\custom_nodes\comfyui_controlnet_aux
+
+Context impl SQLiteImpl.
+Will assume non-transactional DDL.
+No target revision found.
+Starting server
+
+To see the GUI go to: http://127.0.0.1:8188
+FETCH ComfyRegistry Data: 5/96
+FETCH ComfyRegistry Data: 10/96
+FETCH ComfyRegistry Data: 15/96
+FETCH ComfyRegistry Data: 20/96
+FETCH ComfyRegistry Data: 25/96
+FETCH ComfyRegistry Data: 30/96
+FETCH ComfyRegistry Data: 35/96
+FETCH ComfyRegistry Data: 40/96
+FETCH ComfyRegistry Data: 45/96
+FETCH ComfyRegistry Data: 50/96
+FETCH ComfyRegistry Data: 55/96
+FETCH ComfyRegistry Data: 60/96
+FETCH ComfyRegistry Data: 65/96
+FETCH ComfyRegistry Data: 70/96
+FETCH ComfyRegistry Data: 75/96
+FETCH ComfyRegistry Data: 80/96
+FETCH ComfyRegistry Data: 85/96
+FETCH ComfyRegistry Data: 90/96
+FETCH ComfyRegistry Data: 95/96
+FETCH ComfyRegistry Data [DONE]
+[ComfyUI-Manager] default cache updated: https://api.comfy.org/nodes
+FETCH DATA from: https://raw.githubusercontent.com/ltdrdata/ComfyUI-Manager/main/custom-node-list.json [DONE]
+[ComfyUI-Manager] All startup tasks have been completed.
