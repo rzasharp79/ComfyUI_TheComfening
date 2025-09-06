@@ -22,6 +22,9 @@ alembic
 SQLAlchemy
 av>=14.2.0
 
+# Headless OpenCV (contrib) to avoid GUI dependencies
+opencv-contrib-python-headless==4.12.0.88
+
 #non essential dependencies:
 kornia>=0.7.1
 spandrel

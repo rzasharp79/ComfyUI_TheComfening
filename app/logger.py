@@ -20,6 +20,23 @@ class LogInterceptor(io.TextIOWrapper):
         self._logs_since_flush = []
 
     def write(self, data):
+        # Suppress known noisy, non-impacting lines
+        try:
+            if isinstance(data, str):
+                txt = data.strip()
+                if (
+                    "[ComfyUI-Manager] default cache updated:" in data
+                    or "DWPose: Onnxruntime with acceleration providers detected" in data
+                    or ("comfyui_controlnet_aux" in data and "| INFO -> Using " in data)
+                    or "FETCH DATA from:" in data
+                    or txt == "[DONE]"
+                    or "FETCH ComfyRegistry Data:" in data
+                    or "FETCH ComfyRegistry Data [DONE]" in data
+                ):
+                    return
+        except Exception:
+            pass
+
         entry = {"t": datetime.now().isoformat(), "m": data}
         with self._lock:
             self._logs_since_flush.append(entry)

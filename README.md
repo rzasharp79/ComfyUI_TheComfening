@@ -265,6 +265,8 @@ This script will create/activate a venv, upgrade pip, install `requirements.txt`
 
 #### Troubleshooting
 
+Quieter logs: ComfyUI now suppresses common non-impacting startup noise (ControlNet-AUX info lines, ComfyUI-Manager cache updates, ComfyRegistry fetch progress, and Windows Proactor connection-reset traces). This reduces terminal clutter without affecting functionality. To revert, remove the filters in `main.py` and `app/logger.py`.
+
 If you see an error like `OSError: [WinError 10048] only one usage of each socket address ...` or `error while attempting to bind on address ('127.0.0.1', 8188)`, it means the default port is already in use.
 
 - By default `run.bat` now auto-selects the first free port from `8188` to `8200`.

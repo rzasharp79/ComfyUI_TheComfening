@@ -2,6 +2,7 @@ import comfy.options
 comfy.options.enable_args_parsing()
 
 import os
+import warnings
 import importlib.util
 import folder_paths
 import time
@@ -21,6 +22,63 @@ if __name__ == "__main__":
     os.environ['DO_NOT_TRACK'] = '1'
 
 setup_logger(log_level=args.verbose, use_stdout=args.log_stdout)
+
+# Suppress non-impacting warnings from third-party libs to reduce noise
+def _suppress_non_impacting_warnings():
+    try:
+        # Hide deprecation noise from dependencies like aiohttp, alembic, SWIG bindings, etc.
+        warnings.filterwarnings("ignore", category=DeprecationWarning)
+        warnings.filterwarnings(
+            "ignore",
+            message=r"Bare functions are deprecated, use async ones",
+            category=DeprecationWarning,
+        )
+        warnings.filterwarnings(
+            "ignore",
+            message=r"No path_separator found in configuration; .*",
+            category=DeprecationWarning,
+        )
+        warnings.filterwarnings(
+            "ignore",
+            message=r"builtin type .* has no __module__ attribute",
+            category=DeprecationWarning,
+        )
+
+        # Downlevel chatty third-party loggers
+        logging.getLogger("alembic").setLevel(logging.ERROR)
+        logging.getLogger("aiohttp").setLevel(logging.ERROR)
+        logging.getLogger("asyncio").setLevel(logging.ERROR)
+        logging.getLogger("urllib3").setLevel(logging.ERROR)
+    except Exception:
+        # Never let warning suppression interfere with startup
+        pass
+
+_suppress_non_impacting_warnings()
+
+# Reduce chatty output from some custom nodes and managers
+def _silence_chatty_modules():
+    try:
+        # Silence ControlNet AUX info logs (keeps warnings/errors)
+        logging.getLogger("comfyui_controlnet_aux").setLevel(logging.WARNING)
+
+        # Drop ComfyUI-Manager cache update spam while keeping other messages
+        class _ManagerCacheFilter(logging.Filter):
+            def filter(self, record):
+                try:
+                    msg = record.getMessage()
+                except Exception:
+                    msg = str(record.msg)
+                if "[ComfyUI-Manager] default cache updated:" in msg:
+                    return False
+                return True
+
+        root_logger = logging.getLogger()
+        for h in list(root_logger.handlers):
+            h.addFilter(_ManagerCacheFilter())
+    except Exception:
+        pass
+
+_silence_chatty_modules()
 
 def apply_custom_paths():
     # extra model paths
@@ -310,6 +368,20 @@ def start_comfyui(asyncio_loop=None):
     if not asyncio_loop:
         asyncio_loop = asyncio.new_event_loop()
         asyncio.set_event_loop(asyncio_loop)
+
+    # Suppress noisy Windows Proactor connection reset callback traces
+    # (e.g., "Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)" / WinError 10054)
+    try:
+        def _quiet_win_reset(loop, context):
+            exc = context.get('exception')
+            msg = context.get('message', '')
+            if isinstance(exc, ConnectionResetError) or ('_ProactorBasePipeTransport._call_connection_lost' in msg):
+                return
+            loop.default_exception_handler(context)
+
+        asyncio_loop.set_exception_handler(_quiet_win_reset)
+    except Exception:
+        pass
     prompt_server = server.PromptServer(asyncio_loop)
 
     hook_breaker_ac10a0.save_functions()
